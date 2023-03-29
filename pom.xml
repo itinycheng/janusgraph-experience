@@ -71,6 +71,16 @@
 				<version>${gremlin.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.janusgraph</groupId>
+				<artifactId>janusgraph-driver</artifactId>
+				<version>${janusgraph.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tinkerpop</groupId>
+				<artifactId>gremlin-driver</artifactId>
+				<version>${gremlin.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
