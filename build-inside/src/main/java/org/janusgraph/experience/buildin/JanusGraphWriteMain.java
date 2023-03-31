@@ -37,9 +37,23 @@ public class JanusGraphWriteMain {
         addEdgeIndex(graph);
         addPropertyIndex(graph);
         traversalGraph(graph);
+        updateVertexProperty(graph);
         removeAllVertices(graph);
         dropVertexCompositeIndex(graph);
         graph.close();
+    }
+
+    /**
+     * Update vertex property.
+     */
+    private static void updateVertexProperty(JanusGraph graph) {
+        log.info("================ Update vertex property and composite index ================");
+        try (JanusGraphTransaction transaction = graph.newTransaction()) {
+            Vertex next = transaction.traversal().V()
+                    .has("uuid", "ident", "uuid_ident").next();
+            next.property("ident", "uuid_ident_updated");
+            transaction.commit();
+        }
     }
 
     /**
